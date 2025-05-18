@@ -32,3 +32,6 @@
       <!-- Main Custom Css -->
       <link href="{{asset('asset/css/custom.css')}}" rel="stylesheet" media="screen">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <!-- Toastr CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    

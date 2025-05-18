@@ -1,0 +1,66 @@
+<?php 
+
+namespace App\Service\Auth;
+
+use Auth;
+use App\Repository\AuthRepository;
+use Illuminate\Support\Facades\Request;
+
+class AuthService implements IAuthService{
+
+    public $AuthRepository;
+    public function __construct(AuthRepository $AuthRepository)
+    {
+        $this->AuthRepository = $AuthRepository;
+    }
+
+    public function login($data)
+    {
+        $data->validate([
+           
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8',
+        ],[
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không đúng định dạng',
+
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự',
+          
+        ]);
+        return $this->AuthRepository->login($data);
+        
+    }
+
+    public function loginAdmin( $request)
+    {
+        // Implement admin login logic
+    }
+
+    public function register($data)
+    {
+       $data->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ],[
+            'name.required' => 'Vui lòng nhập tên',
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không đúng định dạng',
+            'email.unique' => 'Email đã tồn tại',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự',
+          
+        ]);
+        $this->AuthRepository->register($data);
+    }
+
+    public function logout()
+    {
+        $this->AuthRepository->logout();
+    }
+
+    public function ForgotPassword($request){
+        
+    }
+}

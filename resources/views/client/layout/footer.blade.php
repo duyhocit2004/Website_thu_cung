@@ -2,55 +2,6 @@
          <div id="sisf-page-footer-top-area-inner" class="footer-top-area-inner sisf-content-full-width">
             <div class="container">
                <div class="row  gallery-items page-gallery-box">
-                  <!-- Footer Gallery Start -->   
-                  <div class= "gallery-container">
-                     <div class="gallery-item single-center">
-                        <div class="wow fadeInUp">
-                           <a href="images/ft-gallery-1.png">
-                              <figure>
-                                 <img src="images/ft-gallery-1.png" alt="Pawly">
-                              </figure>
-                           </a>
-                        </div>
-                     </div>
-                     <div class=" gallery-item single-center">
-                        <div class="wow fadeInUp mb-1">
-                           <a href="images/ft-gallery-2.png">
-                              <figure>
-                                 <img src="images/ft-gallery-2.png" alt="Pawly">
-                              </figure>
-                           </a>
-                        </div>
-                     </div>
-                     <div class=" gallery-item single-center">
-                        <div class="wow fadeInUp mb-1">
-                           <a href="images/ft-gallery-3.png">
-                              <figure>
-                                 <img src="images/ft-gallery-3.png" alt="Pawly">
-                              </figure>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="gallery-item single-center">
-                        <div class="wow fadeInUp">
-                           <a href="images/ft-gallery-4.png">
-                              <figure>
-                                 <img src="images/ft-gallery-4.png" alt="Pawly">
-                              </figure>
-                           </a>
-                        </div>
-                     </div>
-                     <div class="gallery-item single-center">
-                        <div class="wow fadeInUp">
-                           <a href="images/ft-gallery-5.png">
-                              <figure>
-                                 <img src="images/ft-gallery-5.png" alt="Pawly">
-                              </figure>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- Footer Gallery End -->  
                   <!-- Footer Subscribe Start --> 
                   <div class="col-md-6 ms-auto me-auto">
                      <h5 class="text-white text-center">Subscribe now to FOR updates and exclusive offers!</h5>

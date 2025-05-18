@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Home1Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,15 @@ use App\Http\Controllers\Home1Controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/',[Home1Controller::class,'index']);
+Route::get('/', function () {
+    return view('client.index');
+})->name('home');
+Route::get('formLogin',[AuthController::class,'formLogin'])->name('formLogin');
+Route::post('loginUser',[AuthController::class,'login'])->name('loginUser');
+Route::get('formLoginAdmin',[AuthController::class,'formLoginAdmin'])->name('formLoginAdmin');
+Route::post('loginAdmin',[AuthController::class,'loginAdmin'])->name('loginAdmin');
+Route::get('formRegister',[AuthController::class,'formRegister'])->name('formRegister');
+Route::post('register',[AuthController::class,'register'])->name('register');
+Route::get('formForgotPassword',[AuthController::class,'formForgotPassword'])->name('formForgotPassword');
+Route::post('forgotPassword',[AuthController::class,'forgotPassword'])->name('forgotPassword');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
