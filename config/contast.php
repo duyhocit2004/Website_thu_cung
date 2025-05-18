@@ -1,10 +1,7 @@
 <?php
 return [
 
-    'Admin' => 'amin',
+    'Admin' => 'admin',
     'User' => 'user',
-
-
-
 
 ];

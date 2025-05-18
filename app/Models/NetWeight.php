@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class NetWeight extends Model
 {
     use HasFactory;
+    protected $table = 'net_weights';
+    protected $fillable = [
+        'name',
+        'created_at',
+        'updated_at'
+    ];
+    public function productVariant()
+    {
+        return $this->hasMany(ProductVariant::class, 'net_weight_id', 'id');
+    }
 }

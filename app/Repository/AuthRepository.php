@@ -24,12 +24,13 @@ class AuthRepository
         //     'password' => 12345678,
         // ];
         if (Auth::attempt($credentials)) {
-        if (Auth::user()->role === 'user') {
-            return redirect()->route('home')->with('success', 'Bạn đã đăng nhập thành công');
-        } else {
-            Auth::logout(); // Không đúng quyền
-            return redirect()->route('formLogin')->with('error', 'Tài khoản không có quyền truy cập');
-        }
+            // dd(Auth::user());
+            if (Auth::user()->role ===  config('contast.User')) {
+                return redirect()->route('home')->with('success', 'Bạn đã đăng nhập thành công');
+            } else {
+                Auth::logout(); // Không đúng quyền
+                return redirect()->route('formLogin')->with('error', 'Tài khoản không có quyền truy cập');
+            }
         }
 
         return redirect()->route('formLogin')->with('error', 'Tài khoản hoặc mật khẩu bị sai');
@@ -37,7 +38,16 @@ class AuthRepository
     }
     public function loginAdmin($request)
     {
-        //
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            if (Auth::user()->role === config('contast.Admin')) {
+                return redirect('admin/product')->with('success', 'Bạn đã đăng nhập thành công');
+            } else {
+                Auth::logout(); // Không đúng quyền
+                return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản không có quyền truy cập');
+            }
+        }
     }
     public function register($data)
     {

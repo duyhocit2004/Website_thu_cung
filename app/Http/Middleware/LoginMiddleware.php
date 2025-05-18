@@ -16,9 +16,11 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check()) {
-            return redirect()->route('formLogin')->with('error', 'Bạn phải đăng nhập để tiếp tục');
+        if (!Auth::check() && Auth::user()->role !== config('admin')) {
+            return redirect()->route('formLoginAdmin')->with('error', 'đăng nhập thất bại');
+        } else {
+            return $next($request);
         }
-        return $next($request);
     }
+
 }

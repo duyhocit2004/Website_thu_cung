@@ -23,12 +23,12 @@ class AuthController extends Controller
         return $this->authService->login($request);
         //  redirect()->route('home')->with('success','Bạn đã đăng nhập thành công');
     }
-    public function formLoginAmin(){
-        //return view('admin.login.login');
+    public function formLoginAdmin(){
+        return view('admin.Auth.LoginAdmin');
     }
     public function loginAdmin(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         return $this->authService->loginAdmin($request);
     }
     public function formRegister(){

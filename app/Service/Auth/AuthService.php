@@ -32,9 +32,20 @@ class AuthService implements IAuthService{
         
     }
 
-    public function loginAdmin( $request)
+    public function loginAdmin($data)
     {
-        // Implement admin login logic
+         $data->validate([
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8',
+        ],[
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không đúng định dạng',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự',
+          
+        ]);
+        // dd($data->all());
+        return $this->AuthRepository->loginAdmin($data);
     }
 
     public function register($data)

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class AlbumImage extends Model
 {
     use HasFactory;
+    protected $table = 'album_images';  
+    protected $fillable = [
+        'product_id',
+        'image_path',
+        'created_at',
+        'updated_at'
+    ];
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

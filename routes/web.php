@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\homeController;
 use App\Http\Controllers\auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,10 @@ Route::post('register',[AuthController::class,'register'])->name('register');
 Route::get('formForgotPassword',[AuthController::class,'formForgotPassword'])->name('formForgotPassword');
 Route::post('forgotPassword',[AuthController::class,'forgotPassword'])->name('forgotPassword');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
+
+Route::prefix('admin')->middleware(['auth.admin'])->group(function (){
+Route::get('product',[homeController::class,'index'])->name('homeAdmin');
+    Route::prefix('product')->group(function (){
+        Route::get('/',[homeController::class,'index'])->name('homeAdmin');
+    });
+});
