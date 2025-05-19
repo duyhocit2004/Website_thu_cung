@@ -102,7 +102,7 @@
                   <div class="user-icon mx-3">
 
                      <span class="sisf-shortcode sisf-m  sisf-icon-holder sisf-size--default sisf-layout--normal">			
-                     <a href="my-account.html">		
+                     <a href="{{route('formLogin')}}">		
                      <span class="sisf-icon-dripicons dripicons-user sisf-icon sisf-e">
                      <i class="fa-regular fa-user"></i>
                      </span>			

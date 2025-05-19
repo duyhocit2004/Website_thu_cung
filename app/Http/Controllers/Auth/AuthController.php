@@ -48,4 +48,12 @@ class AuthController extends Controller
     public function logout(){
         return $this->authService->logout();
     }
+    public function redirectToGoogle()
+    {
+        return $this->authService->redirectToGoogle();
+    }
+    public function handleGoogleCallback()
+    {
+        return $this->authService->handleGoogleCallback();
+    }
 }

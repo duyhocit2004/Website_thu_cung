@@ -45,7 +45,8 @@
                         </div>
                         <h1>Quên mật khẩu</h1>
                         <h3>Đổi mật khẩu nếu bạn quên</h3>
-                        <form action="#" method="GET">
+                        <form action="{{route('forgotPassword')}}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <label for="first_field" class="form-label float-start">Email</label>
                                 <input name="email" type="email" class="form-control" id="first_field" placeholder="Email Address" aria-label="Email Address">

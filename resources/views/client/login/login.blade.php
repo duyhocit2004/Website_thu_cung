@@ -63,7 +63,7 @@
                                 @enderror
                             </div>
                             <div class="checkbox form-group clearfix">
-                                <a href="forgot-password-12.html" class="link-light float-end forgot-password">Quên mật khẩu</a>
+                                <a href="{{route('formForgotPassword')}}" class="link-light float-end forgot-password">Quên mật khẩu</a>
                             </div>
                             <div class="form-group clearfix">
                                 <button type="submit" class="btn btn-lg btn-primary btn-theme"><span>Đăng nhập</span></button>
@@ -72,9 +72,9 @@
                         <p>Tôi không có tài khoản <a href="{{route('formRegister')}}" class="thembo" style="color:blue"> Đăng ký</a></p>
                        <div class="social-box d-flex justify-content-center">
                             <ul class="social-list d-flex gap-3 list-unstyled">
-                                <li><a href="#" class="facebook-color"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
+                                <li><a href="" class="facebook-color"><i class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
                                 <li><a href="#" class="twitter-color"><i class="fa fa-twitter twitter-i"></i><span>Twitter</span></a></li>
-                                <li><a href="#" class="google-color"><i class="fa fa-google google-i"></i><span>Google</span></a></li>
+                                <li><a href="{{route('redirectToGoogle')}}" class="google-color"><i class="fa fa-google google-i"></i><span>Google</span></a></li>
                             </ul>
                         </div>
                     </div>

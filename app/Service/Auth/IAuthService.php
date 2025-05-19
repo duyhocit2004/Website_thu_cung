@@ -15,5 +15,7 @@ interface IAuthService
     public function logout();
 
     public function ForgotPassword($request);
+    public function redirectToGoogle();
+    public function handleGoogleCallback();
 
 }

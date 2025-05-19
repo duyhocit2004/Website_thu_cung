@@ -28,6 +28,9 @@ Route::get('formForgotPassword',[AuthController::class,'formForgotPassword'])->n
 Route::post('forgotPassword',[AuthController::class,'forgotPassword'])->name('forgotPassword');
 Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
+Route::get('redirectToGoogle',[AuthController::class,'redirectToGoogle'])->name('redirectToGoogle');
+Route::get('handleGoogleCallback',[AuthController::class,'handleGoogleCallback']);
+
 Route::prefix('admin')->middleware(['auth.admin'])->group(function (){
 Route::get('product',[homeController::class,'index'])->name('homeAdmin');
     Route::prefix('product')->group(function (){

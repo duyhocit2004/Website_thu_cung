@@ -72,6 +72,20 @@ class AuthService implements IAuthService{
     }
 
     public function ForgotPassword($request){
-        
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+        ],[
+            'email.required' => 'Vui lòng nhập email',
+            'email.email' => 'Email không đúng định dạng',
+        ]);
+        return $this->AuthRepository->ForgotPassword($request);
+    }
+    public function redirectToGoogle()
+    {
+        return $this->AuthRepository->redirectToGoogle();
+    }
+    public function handleGoogleCallback()
+    {
+        return $this->AuthRepository->handleGoogleCallback();
     }
 }
