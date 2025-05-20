@@ -88,4 +88,12 @@ class AuthService implements IAuthService{
     {
         return $this->AuthRepository->handleGoogleCallback();
     }
+    public function redirectToFacebook()
+    {
+        return $this->AuthRepository->redirectToFacebook();
+    }
+    public function handleFacebookCallback()
+    {
+        return $this->AuthRepository->handleFacebookCallback();
+    }
 }

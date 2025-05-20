@@ -121,4 +121,35 @@ class AuthRepository
         }
 
     }
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+    public function handleFacebookCallback()
+    {
+        try {
+            $user = Socialite::driver('facebook')->user();
+
+            $findUser = user::Where('email', $user->getEmail())->first();
+            $password = Str::random(10);
+            if (!$findUser) {
+                $newUser = User::create([
+                    'name' => $user->getName(),
+                    'email' => $user->getEmail(),
+                    'password' => Hash::make($password),
+                ]);
+
+                Mail::to($newUser->email)->send(new MailGoogle($password));
+
+                Auth::login($newUser);
+                return redirect()->route('home')->with('success', 'Đăng nhập thành công , Vui lòng kiểm tra email để nhận mật khẩu');
+            } else {
+                Auth::login($findUser);
+                return redirect()->route('home')->with('success', 'Đăng nhập thành công');
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('formLogin')->with('error', 'Đăng nhập thất bại');
+        }
+
+    }
 }
