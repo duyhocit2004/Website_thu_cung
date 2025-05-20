@@ -17,5 +17,7 @@ interface IAuthService
     public function ForgotPassword($request);
     public function redirectToGoogle();
     public function handleGoogleCallback();
+    public function redirectToFacebook();
+    public function handleFacebookCallback();
 
 }
