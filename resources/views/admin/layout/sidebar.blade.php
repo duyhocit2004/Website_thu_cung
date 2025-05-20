@@ -72,7 +72,7 @@
                             </svg>Chart</a></li>
                 </ul>
             </li>
-            
+
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
@@ -87,7 +87,8 @@
                         </use>
                     </svg></a>
                 <ul class="sidebar-submenu">
-                    <li><a href="box-layout.html">
+                    <li>
+                        <a href="box-layout.html">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
@@ -99,7 +100,8 @@
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
-                            </svg>Dark</a></li>
+                            </svg>Dark</a>
+                    </li>
                 </ul>
             </li>
 
@@ -118,17 +120,21 @@
                             href="https://admin.pixelstrap.net/edmin/assets/svg/feather-icons/dist/feather-sprite.svg#chevron-right">
                         </use>
                     </svg></a>
+
                 <ul class="sidebar-submenu">
-                    <li><a href="project-list.html">
+                    <li>
+                        <a href="project-list.html">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
-                            </svg>Project List</a></li>
+                            </svg>Project List</a>
+                    </li>
                     <li> <a href="projectcreate.html">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
-                            </svg>Create New</a></li>
+                            </svg>Create New</a>
+                    </li>
                 </ul>
             </li>
             <li class="sidebar-list">
