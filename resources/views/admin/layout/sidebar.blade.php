@@ -72,6 +72,7 @@
                             </svg>Chart</a></li>
                 </ul>
             </li>
+            
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
