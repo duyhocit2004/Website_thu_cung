@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class AuthController extends Controller
 {
     public $authService;
-    public function __construct(IAuthService $authService)
+    public function __construct(AuthService $authService)
     {
          $this->authService = $authService;
     }
@@ -61,5 +61,11 @@ class AuthController extends Controller
     }
     public function handleFacebookCallback(){
         return $this->authService->handleFacebookCallback();
+    }
+    public function redirectToReddit(){
+        return $this->authService->redirectToReddit();
+    }
+    public function handleRedditCallback(){
+        return $this->authService->handleRedditCallback();
     }
 }

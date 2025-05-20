@@ -21,3 +21,4 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="{{asset('main/assets/css/skins/default.css')}}">
       <!-- Toastr CSS -->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+     

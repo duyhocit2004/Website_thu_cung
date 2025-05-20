@@ -16,11 +16,14 @@ class LoginMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() ) {
+        if (!Auth::check() && auth::user()->role !== config('contast.Admin')) {
             return redirect()->route('formLoginAdmin')->with('error', 'đăng nhập thất bại');
         } else {
+            // return redirect()->route('admin/prouct')->with('error', 'đăng nhập thành công');
             return $next($request);
+            
         }
+        
     }
 
 }

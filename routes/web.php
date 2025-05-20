@@ -31,6 +31,12 @@ Route::get('logout',[AuthController::class,'logout'])->name('logout');
 Route::get('redirectToGoogle',[AuthController::class,'redirectToGoogle'])->name('redirectToGoogle');
 Route::get('handleGoogleCallback',[AuthController::class,'handleGoogleCallback']);
 
+Route::get('redirectToFacebook',[AuthController::class,'redirectToFacebook'])->name('redirectToFacebook');
+Route::get('handleFacebookCallback',[AuthController::class,'handleFacebookCallback']);
+
+Route::get('redirectToReddit',[AuthController::class,'redirectToReddit'])->name('redirectToReddit');
+Route::get('handleRedditCallback',[AuthController::class,'handleRedditCallback']);
+
 Route::prefix('admin')->middleware(['auth.admin'])->group(function (){
 Route::get('product',[homeController::class,'index'])->name('homeAdmin');
     Route::prefix('product')->group(function (){

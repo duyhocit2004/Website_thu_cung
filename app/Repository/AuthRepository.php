@@ -44,15 +44,19 @@ class AuthRepository
     }
     public function loginAdmin($request)
     {
+        
         $credentials = $request->only('email', 'password');
-
+        // dd(Auth::attempt($credentials));
         if (Auth::attempt($credentials)) {
+            
             if (Auth::user()->role === config('contast.Admin')) {
                 return redirect('admin/product')->with('success', 'Bạn đã đăng nhập thành công');
             } else {
                 Auth::logout(); // Không đúng quyền
                 return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản không có quyền truy cập');
             }
+        }else{
+            return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản hoặc mật khẩu bị sai');
         }
     }
     public function register($data)
@@ -129,6 +133,38 @@ class AuthRepository
     {
         try {
             $user = Socialite::driver('facebook')->user();
+
+            $findUser = user::Where('email', $user->getEmail())->first();
+            $password = Str::random(10);
+            if (!$findUser) {
+                $newUser = User::create([
+                    'name' => $user->getName(),
+                    'email' => $user->getEmail(),
+                    'password' => Hash::make($password),
+                ]);
+
+                Mail::to($newUser->email)->send(new MailGoogle($password));
+
+                Auth::login($newUser);
+                return redirect()->route('home')->with('success', 'Đăng nhập thành công , Vui lòng kiểm tra email để nhận mật khẩu');
+            } else {
+                Auth::login($findUser);
+                return redirect()->route('home')->with('success', 'Đăng nhập thành công');
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('formLogin')->with('error', 'Đăng nhập thất bại');
+        }
+
+    }
+
+    public function redirectToReddit()
+    {
+        return Socialite::driver('reddit')->redirect();
+    }
+    public function handleRedditCallback()
+    {
+        try {
+            $user = Socialite::driver('reddit')->user();
 
             $findUser = user::Where('email', $user->getEmail())->first();
             $password = Str::random(10);

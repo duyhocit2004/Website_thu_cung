@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Service\Auth\AuthService;
+use App\Service\User\UserService;
 use App\Service\Auth\IAuthService;
+use App\Service\User\IUserService;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\ServiceProvider;
+use SocialiteProviders\Manager\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(IAuthService::class,AuthService::class);
+        $this->app->bind(IUserService::class,UserService::class);
+        
     }
 
     /**

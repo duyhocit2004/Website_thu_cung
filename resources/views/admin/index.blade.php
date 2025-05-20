@@ -17,7 +17,12 @@
         <!-- Page sidebar end-->
         <div class="page-body">
             <div class="container-fluid">
-                <div class="row page-title">
+                @yield('main')
+                {{-- <div class="row page-title">
+                    <div class="col-sm-6">
+                        <h3>Admin</h3>
+                    </div>
+                {{-- <div class="row page-title">
                     <div class="col-sm-6">
                         <h3>Admin</h3>
                     </div>
@@ -27,7 +32,7 @@
                 <div class="row">
                     Nội dung trang admin
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         @include('admin.layout.footer')

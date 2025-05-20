@@ -19,5 +19,6 @@ interface IAuthService
     public function handleGoogleCallback();
     public function redirectToFacebook();
     public function handleFacebookCallback();
-
+    public function redirectToReddit();
+    public function handleRedditCallback();
 }
