@@ -106,7 +106,7 @@
             </li>
 
             <li class="line"> </li>
-            <li class="sidebar-main-title">Danh sách</li>
+            <li class="sidebar-main-title">Quản lý</li>
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
@@ -149,7 +149,8 @@
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
-                </svg><a class="sidebar-link" href="kanban-board.html">
+                </svg>
+                <a class="sidebar-link" href="{{ route('users.index') }}">
                     <svg class="stroke-icon">
                         <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Wallet">
                         </use>

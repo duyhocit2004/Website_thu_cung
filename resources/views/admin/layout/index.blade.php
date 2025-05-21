@@ -14,23 +14,17 @@
         <!-- Page sidebar start-->
         <div class="overlay"></div>
         @include('admin.layout.sidebar')
+
         <!-- Page sidebar end-->
         <div class="page-body">
-            <div class="container-fluid">
-                <div class="row page-title">
-                    <div class="col-sm-6">
-                        <h3>Admin</h3>
-                    </div>
-                </div>
-            </div>
             <div class="container-fluid default-dashboard">
                 <div class="row">
-                    Nội dung trang admin
+                    @yield('main')
                 </div>
             </div>
         </div>
 
-        @include('admin.layout.footer')
+        {{-- @include('admin.layout.footer') --}}
     </div>
     </main>
     @include('admin.layout.js')
