@@ -73,7 +73,7 @@
                        <div class="social-box d-flex justify-content-center"> 
                             <ul class="social-list d-flex gap-3 list-unstyled">
                                 <li><a href="{{route('redirectToFacebook')}}" class="facebook-color"><span style="margin-left:10px;"  >Facebook</span></a></li>
-                                <li><a href="{{route('redirectToReddit')}}" class="twitter-color"><span style="margin-left:10px;">reddit</span></a></li>
+                                <li><a href="{{route('redirectToBitbucket')}}" class="twitter-color"><span style="margin-left:12px;">Bitbucket</span></a></li>
                                 <li><a href="{{route('redirectToGoogle')}}" class="google-color"><span style="margin-left:10px;">Google</span></a></li>
                             </ul>
                         </div>

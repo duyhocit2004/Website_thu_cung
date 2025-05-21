@@ -21,6 +21,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
           
         ],
+
+        
     ];
 
     /**
@@ -28,10 +30,11 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-          Event::listen(
-        \SocialiteProviders\Manager\SocialiteWasCalled::class,
-        [\SocialiteProviders\Reddit\RedditExtendSocialite::class, 'handle']
-    );
+        //  \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+        //     'SocialiteProviders\\Reddit\\RedditExtendSocialite@handle',
+        // ],
+    
+    
     }
 
     /**

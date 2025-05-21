@@ -36,3 +36,6 @@
     <!-- App css-->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
     <link id="color" rel="stylesheet" href="{{asset('admin/assets/css/color-1.css" media="screen')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+            <!-- Toastr CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>

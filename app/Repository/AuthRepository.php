@@ -50,7 +50,7 @@ class AuthRepository
         if (Auth::attempt($credentials)) {
             
             if (Auth::user()->role === config('contast.Admin')) {
-                return redirect('admin/product')->with('success', 'Bạn đã đăng nhập thành công');
+                return redirect('admin/hom4e')->with('success', 'Bạn đã đăng nhập thành công');
             } else {
                 Auth::logout(); // Không đúng quyền
                 return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản không có quyền truy cập');
@@ -111,7 +111,7 @@ class AuthRepository
                     'email' => $user->getEmail(),
                     'password' => Hash::make($password),
                 ]);
-
+                
                 Mail::to($newUser->email)->send(new MailGoogle($password));
 
                 Auth::login($newUser);
@@ -157,14 +157,14 @@ class AuthRepository
 
     }
 
-    public function redirectToReddit()
+    public function redirectToBitbucket()
     {
-        return Socialite::driver('reddit')->redirect();
+        return Socialite::driver('bitbucket')->redirect();
     }
-    public function handleRedditCallback()
+    public function handleBitbucketCallback ()
     {
         try {
-            $user = Socialite::driver('reddit')->user();
+            $user = Socialite::driver('bitbucket')->user();
 
             $findUser = user::Where('email', $user->getEmail())->first();
             $password = Str::random(10);

@@ -42,10 +42,10 @@ return [
         'client_secret'=>env('FACEBOOK_CLIENT_SECRET'),
         'redirect'=>env('FACEBOOK_REDIRECT_URI')
     ],
-    'reddit' => [
-        'client_id' => env('REDDIT_CLIENT_ID'),
-        'client_secret' => env('REDDIT_CLIENT_SECRET'),
-        'redirect' => env('REDDIT_REDIRECT_URI')
+    'bitbucket' => [
+        'client_id' => env('BITBUCKET_CLIENT_ID'),
+        'client_secret' => env('BITBUCKET_CLIENT_SECRET'),
+        'redirect' => env('BITBUCKET_REDIRECT_URI')
     ],
 
 

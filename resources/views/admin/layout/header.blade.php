@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <div class="custom-menu overflow-hidden">
-                                <ul>
+                                <ul>Danh sách
                                     <li class="d-flex">
                                         <svg class="svg-color">
                                             <use

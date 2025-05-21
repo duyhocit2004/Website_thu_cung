@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\homeController;
+use App\Http\Controllers\admin\productController;
 use App\Http\Controllers\auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,12 +35,17 @@ Route::get('handleGoogleCallback',[AuthController::class,'handleGoogleCallback']
 Route::get('redirectToFacebook',[AuthController::class,'redirectToFacebook'])->name('redirectToFacebook');
 Route::get('handleFacebookCallback',[AuthController::class,'handleFacebookCallback']);
 
-Route::get('redirectToReddit',[AuthController::class,'redirectToReddit'])->name('redirectToReddit');
-Route::get('handleRedditCallback',[AuthController::class,'handleRedditCallback']);
+Route::get('redirectToBitbucket',[AuthController::class,'redirectToBitbucket'])->name('redirectToBitbucket');
+Route::get('handleBitbucketCallback',[AuthController::class,'handleBitbucketCallback']);
 
 Route::prefix('admin')->middleware(['auth.admin'])->group(function (){
-Route::get('product',[homeController::class,'index'])->name('homeAdmin');
+Route::get('home',[homeController::class,'index'])->name('homeAdmin');
     Route::prefix('product')->group(function (){
-        Route::get('/',[homeController::class,'index'])->name('homeAdmin');
+        Route::get('GetAllProductPaginate', [productController::class,'GetAllProductPaginate'])->name('GetAllProductPaginate');
+        Route::get('FormAddProduct',[productController::class,'FormAddProduct'])->name('FormAddProduct');
+        Route::Post('PostAddProduct',[ProductController::class,'PostAddProduct'])->name('PostAddProduct');
+        Route::get('GetproductById/{id}',[ProductController::class,'GetproductById'])->name('GetproductById');
+        Route::put('UpdateProductById/{id}',[ProductController::class,'UpdateProductById'])->name('UpdateProductById');
+        Route::put('DeleteProductById/{id}',[productController::class,'DeleteProductById'])->name('DeleteProductById');
     });
 });

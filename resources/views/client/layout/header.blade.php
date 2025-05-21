@@ -100,8 +100,9 @@
                      <span class="sisf-m-opener-count">0</span>
                   </div>
                   <div class="user-icon mx-3">
-
-                     <span class="sisf-shortcode sisf-m  sisf-icon-holder sisf-size--default sisf-layout--normal">			
+                  
+                  @if(!auth()->check()){
+                      <span class="sisf-shortcode sisf-m  sisf-icon-holder sisf-size--default sisf-layout--normal">			
                      <a href="{{route('formLogin')}}">		
                      <span class="sisf-icon-dripicons dripicons-user sisf-icon sisf-e">
                      <i class="fa-regular fa-user"></i>
@@ -109,6 +110,17 @@
                      </a>	
                      </span>
                      
+                  }@else{
+                      <span class="sisf-shortcode sisf-m  sisf-icon-holder sisf-size--default sisf-layout--normal">			
+                     <a href="#">		
+                     <span class="sisf-icon-dripicons dripicons-user sisf-icon sisf-e">
+                     <i class="fa-regular fa-user"></i>
+                     </span>			
+                     </a>	
+                     </span>
+                  }@endif
+
+                    
                      
                   </div>
                   <div class="sisf-icon-list-item ms-3">

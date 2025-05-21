@@ -8,7 +8,7 @@
                         <h4>Quản lý sản phẩm</h4>
                     </div>
                     <div class="card-header">
-                        <a href="{{route('FormAddProduct')}}" class="btn btn-primary">Thêm Sản phẩm</a>
+                        <a href=""  class="btn btn-primary">Thêm 31232Sản phẩm</a>
                     </div>
                     <div class="card-block row">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
@@ -36,26 +36,24 @@
                                                     <div class="wizard-footer d-flex gap-2 justify-content-end">
                                                         <a href="" class="btn alert-light-primary" id="backbtn">
                                                             Sửa</a>
-                                                        <form action="{{route('DeleteProductById', $products->id)}}"
-                                                            method="post">
+                                                        <form action="" method="post">
                                                             @csrf
-                                                            @method('PUT')
+                                                            @method('DELETE')
                                                             <button class="btn btn-danger" id="nextbtn">Xóa</button>
                                                         </form>
 
                                                     </div>
+
                                             </tr>
                                         @endforeach
 
                                     </tbody>
                                 </table>
-                               {{ $product->links() }}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

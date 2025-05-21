@@ -96,12 +96,12 @@ class AuthService implements IAuthService{
     {
         return $this->AuthRepository->handleFacebookCallback();
     }
-    public function redirectToReddit()
+    public function redirectToBitbucket()
     {
-        return $this->AuthRepository->redirectToReddit();
+        return $this->AuthRepository->redirectToBitbucket();
     }
-    public function handleRedditCallback()
+    public function handleBitbucketCallback()
     {
-        return $this->AuthRepository->handleRedditCallback();
+        return $this->AuthRepository->handleBitbucketCallback();
     }
 }

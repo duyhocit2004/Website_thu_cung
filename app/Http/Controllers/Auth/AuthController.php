@@ -62,10 +62,10 @@ class AuthController extends Controller
     public function handleFacebookCallback(){
         return $this->authService->handleFacebookCallback();
     }
-    public function redirectToReddit(){
-        return $this->authService->redirectToReddit();
+    public function redirectToBitbucket(){
+        return $this->authService->redirectToBitbucket();
     }
-    public function handleRedditCallback(){
-        return $this->authService->handleRedditCallback();
+    public function handleBitbucketCallback(){
+        return $this->authService->handleBitbucketCallback();
     }
 }

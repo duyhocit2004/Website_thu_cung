@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
@@ -37,11 +38,13 @@ class ForgotPasswordMail extends Mailable
      */
     public function content(): Content
     {
+        // $image = $this->embed(public_path('asset/images/pawly_logo.png'));
         return new Content(
             view: 'SentByMail.SendMailConfirmResetPassword',
-            with: [
+            with: ([
                 'password' => $this->password,
-            ],
+                // 'image'=>$image
+            ]),
         );
     }
 
@@ -52,6 +55,10 @@ class ForgotPasswordMail extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            Attachment::fromPath('asset/images/pawly_logo.png')
+            ->as('pawly_logo.png')
+            ->withMime('image/png'),
+        ];
     }
 }

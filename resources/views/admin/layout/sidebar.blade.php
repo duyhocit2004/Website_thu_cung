@@ -140,11 +140,26 @@
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
-                </svg><a class="sidebar-link" href="file-manager.html">
+                </svg><a class="sidebar-link" href="{{route('GetAllProductPaginate')}}">
                     <svg class="stroke-icon">
                         <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Paper">
                         </use>
                     </svg><span>Sản phẩm</span></a>
+                <ul class="sidebar-submenu">
+                    <li>
+                        <a href="project-list.html">
+                            <svg class="svg-menu">
+                                <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
+                                </use>
+                            </svg>sửasửa</a>
+                    </li>
+                    <li> <a href="projectcreate.html">
+                            <svg class="svg-menu">
+                                <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
+                                </use>
+                            </svg>themthem</a>
+                    </li>
+                </ul>
             </li>
             <li class="sidebar-list">
                 <svg class="pinned-icon">
