@@ -40,28 +40,27 @@ class AuthRepository
         }
 
         return redirect()->route('formLogin')->with('error', 'Tài khoản hoặc mật khẩu bị sai');
-
     }
     public function loginAdmin($request)
     {
-        
+
         $credentials = $request->only('email', 'password');
         // dd(Auth::attempt($credentials));
         if (Auth::attempt($credentials)) {
-            
+
             if (Auth::user()->role === config('contast.Admin')) {
-                return redirect('admin/hom4e')->with('success', 'Bạn đã đăng nhập thành công');
+                return redirect('admin/home')->with('success', 'Bạn đã đăng nhập thành công');
             } else {
                 Auth::logout(); // Không đúng quyền
                 return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản không có quyền truy cập');
             }
-        }else{
+        } else {
             return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản hoặc mật khẩu bị sai');
         }
     }
+    
     public function register($data)
     {
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -111,7 +110,7 @@ class AuthRepository
                     'email' => $user->getEmail(),
                     'password' => Hash::make($password),
                 ]);
-                
+
                 Mail::to($newUser->email)->send(new MailGoogle($password));
 
                 Auth::login($newUser);
@@ -123,7 +122,6 @@ class AuthRepository
         } catch (\Exception $e) {
             return redirect()->route('formLogin')->with('error', 'Đăng nhập thất bại');
         }
-
     }
     public function redirectToFacebook()
     {
@@ -154,14 +152,13 @@ class AuthRepository
         } catch (\Exception $e) {
             return redirect()->route('formLogin')->with('error', 'Đăng nhập thất bại');
         }
-
     }
 
     public function redirectToBitbucket()
     {
         return Socialite::driver('bitbucket')->redirect();
     }
-    public function handleBitbucketCallback ()
+    public function handleBitbucketCallback()
     {
         try {
             $user = Socialite::driver('bitbucket')->user();
@@ -186,6 +183,5 @@ class AuthRepository
         } catch (\Exception $e) {
             return redirect()->route('formLogin')->with('error', 'Đăng nhập thất bại');
         }
-
     }
 }

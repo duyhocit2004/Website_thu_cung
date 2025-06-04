@@ -4,7 +4,8 @@ namespace App\Repository\User;
 
 use App\Models\User;
 
-class UserRepository {
+class UserRepository
+{
 
     public function GetUserAndAdmin()
     {
@@ -37,5 +38,4 @@ class UserRepository {
         }
         return null;
     }
-
 }
