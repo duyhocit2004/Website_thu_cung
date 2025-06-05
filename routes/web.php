@@ -42,6 +42,8 @@ Route::get('handleFacebookCallback', [AuthController::class, 'handleFacebookCall
 Route::get('redirectToBitbucket', [AuthController::class, 'redirectToBitbucket'])->name('redirectToBitbucket');
 Route::get('handleBitbucketCallback', [AuthController::class, 'handleBitbucketCallback']);
 
+
+// Admin Routes
 Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::get('home', [homeController::class, 'index'])->name('homeAdmin');
     Route::prefix('product')->group(function () {
@@ -72,12 +74,12 @@ Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
         Route::get('delete/{id}', [ColorController::class, 'destroy'])->name('color.delete');
     });
 
-       Route::prefix('size')->group(function () {
+    Route::prefix('size')->group(function () {
         Route::get('/', [SizeController::class, 'index'])->name('size.index');
         Route::get('create', [SizeController::class, 'create'])->name('size.create');
         Route::post('store', [SizeController::class, 'store'])->name('size.store');
         Route::get('edit/{id}', [SizeController::class, 'edit'])->name('size.edit');
-        Route::post('update/{id}', [SizeController::class, 'update'])->name('size.update');
+        Route::put('update/{id}', [SizeController::class, 'update'])->name('size.update');
         Route::get('delete/{id}', [SizeController::class, 'destroy'])->name('size.delete');
     });
 });

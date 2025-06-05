@@ -1,75 +1,68 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Size;
-use App\Http\Requests\StoreSizeRequest;
-use App\Http\Requests\UpdateSizeRequest;
 use Illuminate\Http\Request;
 
 class SizeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $size = Size::all();
-        
-        return view('size.index', compact('size'));
+
+        return view('admin.size.index', compact('color'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('size.create');
+        return view('admin.size.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreSizeRequest $request)
+    public function store(Request $request)
     {
-        Size::create($request->validated());
-        return redirect()->route('size.index')
-            ->with('success', 'Size đã được tạo thành công.');
+        // $request->validate([
+        //     'name' => 'required|max:255|unique:size,name'
+        // ]);
+
+        Size::create([
+            'name' => $request->name
+        ]);
+
+        return redirect()
+            ->route('size.index')
+            ->with('success', 'Thêm màu thành công');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Size $size)
+    public function edit(string $id)
     {
-        return view('size.show', compact('size'));
+        $size = Size::findOrFail($id);
+
+        return view('admin.size.edit', compact('size'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Size $size)
+    public function update(Request $request, string $id)
     {
-        return view('size.edit', compact('size'));
+        $size = Size::findOrFail($id);
+
+        $size->update([
+            'name' => $request->name,
+        ]);
+
+        return redirect()
+            ->route('size.index')
+            ->with('success', 'Sửa màu sắc thành công');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateSizeRequest $request, Size $size)
+    public function destroy(string $id)
     {
-        $size->update($request->validated());
-        return redirect()->route('size.index')
-            ->with('success', 'Size đã được cập nhật thành công.');
-    }
+        $size = Size::findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Size $size)
-    {
         $size->delete();
-        return redirect()->route('size.index')
-            ->with('success', 'Size đã được xóa thành công.');
+
+        return redirect()
+            ->route('size.index')
+            ->with('success', 'Xóa màu sắc thành công');
     }
 }

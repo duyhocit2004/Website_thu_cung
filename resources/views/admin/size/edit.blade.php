@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Thêm kích thước</h3>
+                <h3>Sửa kích thước</h3>
             </div>
         </div>
     </div>
@@ -17,12 +17,13 @@
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                             <div class="card">
                                 <div class="card-body custom-input checkbox-checked">
-                                    <form class="theme-form" method="POST" action="{{ route('size.store') }}">
+                                    <form class="theme-form" method="POST" action="{{ route('size.update', $size->id) }}">
                                         @csrf
-
+                                        @method('PUT')
                                         <div class="mb-3">
                                             <label class="form-label" for="first-name">Kích thước</label>
-                                            <input class="form-control" id="first-name" type="text" name="name" aria-label="First name">
+                                            <input class="form-control" type="text" name="name"
+                                                value="{{ $size->name }}">
                                         </div>
 
                                         <div class="mb-3">
@@ -35,5 +36,5 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>~
     @endsection

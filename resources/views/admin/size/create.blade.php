@@ -1,10 +1,10 @@
-@extends('admin.layout.index')
+@extends('admin.index')
 
 @section('main')
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Sửa kích thước</h3>
+                <h3>Thêm kích thước</h3>
             </div>
         </div>
     </div>
@@ -17,12 +17,12 @@
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                             <div class="card">
                                 <div class="card-body custom-input checkbox-checked">
-                                    <form class="theme-form" method="POST" action="{{ route('size.update', $size->id) }}">
+                                    <form class="theme-form" method="POST" action="{{ route('size.store') }}">
                                         @csrf
 
                                         <div class="mb-3">
-                                            <label class="form-label" for="first-name">Kích thước</label>
-                                            <input class="form-control" type="text" name="name" value="{{ $size->name }}">
+                                            <label class="form-label">Kích thước</label>
+                                            <input class="form-control" id="name" type="text" name="name">
                                         </div>
 
                                         <div class="mb-3">
@@ -35,5 +35,5 @@
                     </div>
                 </div>
             </div>
-        </div>~
+        </div>
     @endsection
