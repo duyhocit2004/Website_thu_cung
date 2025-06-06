@@ -24,13 +24,11 @@ class AuthRepository
     public function login($request)
     {
         $credentials = $request->only('email', 'password');
-        // dd($credentials);
-        // $data = [
-        //     'email' => 'hoangduy200456@gmail.com',
-        //     'password' => 12345678,
-        // ];
         if (Auth::attempt($credentials)) {
-            // dd(Auth::user());
+            if (Auth::user()->status == 0) {
+                Auth::logout();
+                return redirect()->route('formLogin')->with('error', 'Tài khoản của bạn đã bị khóa');
+            }
             if (Auth::user()->role === config('contast.User')) {
                 return redirect()->route('home')->with('success', 'Bạn đã đăng nhập thành công');
             } else {
@@ -43,11 +41,12 @@ class AuthRepository
     }
     public function loginAdmin($request)
     {
-
         $credentials = $request->only('email', 'password');
-        // dd(Auth::attempt($credentials));
         if (Auth::attempt($credentials)) {
-
+            if (Auth::user()->status == 0) {
+                Auth::logout();
+                return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản của bạn đã bị khóa');
+            }
             if (Auth::user()->role === config('contast.Admin')) {
                 return redirect('admin/home')->with('success', 'Bạn đã đăng nhập thành công');
             } else {
@@ -58,7 +57,7 @@ class AuthRepository
             return redirect()->route('formLoginAdmin')->with('error', 'Tài khoản hoặc mật khẩu bị sai');
         }
     }
-    
+
     public function register($data)
     {
         return User::create([

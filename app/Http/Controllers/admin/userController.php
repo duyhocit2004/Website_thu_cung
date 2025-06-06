@@ -72,13 +72,21 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
+        // Kiểm tra nếu đang cập nhật tài khoản của chính mình
+        if (auth()->id() == $user->id) {
+            return redirect()
+                ->route('users.index')
+                ->with('error', 'Bạn không thể khóa tài khoản của chính mình.');
+        }
+
         $user->update([
             'role' => $request->role,
+            'status' => $request->status,
         ]);
 
         return redirect()
             ->route('users.index')
-            ->with('success', 'User updated successfully.');
+            ->with('success', 'Cập nhật người dùng thành công.');
     }
 
     public function deactivate($id)

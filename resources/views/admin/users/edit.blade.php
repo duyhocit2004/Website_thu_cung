@@ -48,13 +48,32 @@
                                             <label class="form-label" for="validationDefault04">Vai trò</label>
                                             <select class="form-select" id="validationDefault04" name="role"
                                                 required="">
-                                                <option value="admin">admin</option>
-                                                <option value="user">user</option>
+                                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>admin
+                                                </option>
+                                                <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>user
+                                                </option>
                                             </select>
                                         </div>
 
                                         <div class="mb-3">
-                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                            <label class="form-label" for="validationDefault04">Trạng thái</label>
+                                            <select class="form-select" id="validationDefault04" name="status"
+                                                required="" {{ auth()->id() == $user->id ? 'disabled' : '' }}>
+                                                <option value="1" {{ $user->status == 1 ? 'selected' : '' }}>Hoạt động
+                                                </option>
+                                                <option value="0" {{ $user->status == 0 ? 'selected' : '' }}>Khóa
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            @if (auth()->id() != $user->id)
+                                                <button class="btn btn-primary" type="submit">Cập nhật</button>
+                                            @else
+                                                <div class="alert alert-warning">
+                                                    Bạn không thể chỉnh sửa tài khoản của chính mình
+                                                </div>
+                                            @endif
                                         </div>
                                     </form>
                                 </div>
@@ -63,5 +82,5 @@
                     </div>
                 </div>
             </div>
-        </div>~
+        </div>
     @endsection

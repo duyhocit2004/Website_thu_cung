@@ -4,7 +4,7 @@
     <meta name="description" content="Edmin admin is super flexible, powerful, clean &amp; modern responsive bootstrap admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Edmin admin template, best javascript admin, dashboard template, bootstrap admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <title>Edmin - Premium Admin Template</title>
+    <title>Admin thú cưng Pawly</title>
     <!-- Favicon icon-->
     <link rel="icon" href="{{asset('admin/assets/images/favicon/favicon.png')}}" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('admin/assets/images/favicon/favicon.png')}}" type="image/x-icon">

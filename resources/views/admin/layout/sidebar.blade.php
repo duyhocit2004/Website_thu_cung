@@ -127,13 +127,13 @@
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
-                            </svg>Project List</a>
+                            </svg>Danh sách</a>
                     </li>
                     <li> <a href="projectcreate.html">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
-                            </svg>Create New</a>
+                            </svg>Thêm mới</a>
                     </li>
                 </ul>
             </li>
