@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\admin\ColorController;
 use App\Http\Controllers\admin\homeController;
 use App\Http\Controllers\admin\productController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\SizeController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\Home1Controller;
 use Illuminate\Support\Facades\Route;
 
 
@@ -20,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.index');
-})->name('home');
+
+// routes/web.php
+Route::get('/', [Home1Controller::class, 'index']);
 Route::get('formLogin', [AuthController::class, 'formLogin'])->name('formLogin');
 Route::post('loginUser', [AuthController::class, 'login'])->name('loginUser');
 Route::get('formLoginAdmin', [AuthController::class, 'formLoginAdmin'])->name('formLoginAdmin');
@@ -47,12 +50,19 @@ Route::get('handleBitbucketCallback', [AuthController::class, 'handleBitbucketCa
 Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::get('home', [homeController::class, 'index'])->name('homeAdmin');
     Route::prefix('product')->group(function () {
-        Route::get('GetAllProductPaginate', [productController::class, 'GetAllProductPaginate'])->name('GetAllProductPaginate');
-        Route::get('FormAddProduct', [productController::class, 'FormAddProduct'])->name('FormAddProduct');
-        Route::Post('PostAddProduct', [ProductController::class, 'PostAddProduct'])->name('PostAddProduct');
-        Route::get('GetproductById/{id}', [ProductController::class, 'GetproductById'])->name('GetproductById');
-        Route::put('UpdateProductById/{id}', [ProductController::class, 'UpdateProductById'])->name('UpdateProductById');
-        Route::put('DeleteProductById/{id}', [productController::class, 'DeleteProductById'])->name('DeleteProductById');
+        // Route::get('GetAllProductPaginate', [productController::class, 'GetAllProductPaginate'])->name('GetAllProductPaginate');
+        // Route::get('FormAddProduct', [productController::class, 'FormAddProduct'])->name('FormAddProduct');
+        // Route::Post('PostAddProduct', [ProductController::class, 'PostAddProduct'])->name('PostAddProduct');
+        // Route::get('GetproductById/{id}', [ProductController::class, 'GetproductById'])->name('GetproductById');
+        // Route::put('UpdateProductById/{id}', [ProductController::class, 'UpdateProductById'])->name('UpdateProductById');
+        // Route::put('DeleteProductById/{id}', [productController::class, 'DeleteProductById'])->name('DeleteProductById');
+
+        Route::get('/', [productController::class, 'index'])->name('product.index');
+        Route::get('create', [productController::class, 'create'])->name('product.create');
+        Route::post('store', [productController::class, 'store'])->name('product.store');
+        Route::get('edit/{id}', [productController::class, 'edit'])->name('product.edit');
+        Route::put('update/{id}', [productController::class, 'update'])->name('product.update');
+        Route::get('delete/{id}', [productController::class, 'destroy'])->name('product.delete');
     });
 
     Route::prefix('users')->group(function () {
@@ -63,6 +73,15 @@ Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
         Route::post('update/{id}', [UserController::class, 'update'])->name('users.update');
         Route::get('delete/{id}', [userController::class, 'destroy'])->name('users.delete');
         Route::post('/deactivate/{id}', [UserController::class, 'deactivate'])->name('users.deactivate');
+    });
+
+      Route::prefix('category')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('create', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('store', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::put('update/{id}', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('delete/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
     });
 
     Route::prefix('color')->group(function () {

@@ -58,8 +58,8 @@
                                         <div class="mb-3">
                                             <label class="form-label">Trạng thái</label>
                                             <select class="form-control" name="status">
-                                                <option value="1">Hiển thị</option>
-                                                <option value="0">Ẩn</option>
+                                                <option value="0">Còn hàng</option>
+                                                <option value="1">Hết hàng</option>
                                             </select>
                                         </div>
 

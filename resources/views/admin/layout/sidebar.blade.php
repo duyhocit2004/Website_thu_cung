@@ -112,7 +112,7 @@
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
                 </svg><a class="sidebar-link" href="javascript:void(0)">
                     <svg class="stroke-icon">
-                        <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Info-circle">
+                        <use href="{{ route('category.index') }}">
                         </use>
                     </svg><span>Danh mục</span>
                     <svg class="feather">
@@ -123,17 +123,16 @@
 
                 <ul class="sidebar-submenu">
                     <li>
-                        <a href="project-list.html">
+                        <a href="{{ route('category.index') }}">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
                             </svg>Danh sách</a>
                     </li>
-                    <li> <a href="projectcreate.html">
-                            <svg class="svg-menu">
-                                <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
-                                </use>
-                            </svg>Thêm mới</a>
+                    <li>
+                        <a href="{{ route('category.create') }}">
+                        <svg class="svg-menu">
+                        </svg>Thêm mới</a>
                     </li>
                 </ul>
             </li>
@@ -141,24 +140,24 @@
             <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
-                </svg><a class="sidebar-link" href="{{ route('GetAllProductPaginate') }}">
+                </svg><a class="sidebar-link" href="javascript:void(0)">
                     <svg class="stroke-icon">
                         <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Paper">
                         </use>
                     </svg><span>Sản phẩm</span></a>
                 <ul class="sidebar-submenu">
                     <li>
-                        <a href="project-list.html">
+                        <a href="{{ route('product.index') }}">
+                            <svg class="svg-menu">
+                                <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
+                                </use>
+                            </svg>Danh sách sản phẩm</a>
+                    </li>
+                    <li> <a href="{{ route('product.create') }}">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
                                 </use>
                             </svg>Thêm sản phẩm</a>
-                    </li>
-                    <li> <a href="projectcreate.html">
-                            <svg class="svg-menu">
-                                <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
-                                </use>
-                            </svg>Sửa sản phẩm</a>
                     </li>
                 </ul>
             </li>
@@ -187,7 +186,7 @@
                     </svg></a>
 
                 <ul class="sidebar-submenu">
-                       <li>
+                    <li>
                         <a href="{{ route('color.index') }}">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">
@@ -202,7 +201,7 @@
                 </ul>
             </li>
 
-                  <li class="sidebar-list">
+            <li class="sidebar-list">
                 <svg class="pinned-icon">
                     <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#Pin"></use>
                 </svg><a class="sidebar-link" href="javascript:void(0)">
@@ -217,7 +216,7 @@
                     </svg></a>
 
                 <ul class="sidebar-submenu">
-                       <li>
+                    <li>
                         <a href="{{ route('size.index') }}">
                             <svg class="svg-menu">
                                 <use href="https://admin.pixelstrap.net/edmin/assets/svg/iconly-sprite.svg#right-3">

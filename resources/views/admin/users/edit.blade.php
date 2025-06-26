@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Sửa tài khoản</h3>
+                <h3>Cập nhật tài khoản</h3>
             </div>
         </div>
     </div>

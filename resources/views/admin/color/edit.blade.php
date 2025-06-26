@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row page-title">
             <div class="col-sm-6">
-                <h3>Sửa màu sắc</h3>
+                <h3>Cập nhật màu sắc</h3>
             </div>
         </div>
     </div>

@@ -38,7 +38,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label">Ảnh</label>
-                                            <input class="form-control" type="file" name="image" accept="image/*" required>
+                                            <input class="form-control" type="file" name="image" accept="image/*">
                                             @if ($product->image)
                                                 <img src="{{ asset($product->image) }}" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 200px;">
                                             @else
@@ -67,7 +67,6 @@
                                             <select class="form-control" name="status">
                                                 <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Còn hàng</option>
                                                 <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>Hết hàng</option>
-                                                <option value="2" {{ $product->status == 2 ? 'selected' : '' }}>Ngừng kinh doanh</option>
                                             </select>
                                         </div>
 

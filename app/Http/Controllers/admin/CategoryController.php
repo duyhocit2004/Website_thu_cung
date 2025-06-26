@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     public function index()
     {
         $category = Category::all();
@@ -15,12 +15,10 @@ class CategoryController extends Controller
         return view('admin.category.index', compact('category'));
     }
 
-
     public function create()
     {
         return view('admin.category.create');
     }
-
 
     public function store(Request $request)
     {
@@ -30,7 +28,8 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')
+            ->with('success', 'Thêm danh mục thành công');
     }
 
 
@@ -49,7 +48,6 @@ class CategoryController extends Controller
         return view('admin.category.edit', compact('category'));
     }
 
-
     public function update(Request $request, string $id)
     {
         $category = Category::find($id);
@@ -58,9 +56,10 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('category.index');
+        return redirect()
+            ->route('category.index')
+            ->with('success', 'Cập nhật danh mục thành công');
     }
-
 
     public function destroy(string $id)
     {
@@ -68,6 +67,8 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('category.index');
+        return redirect()
+            ->route('category.index')
+            ->with('success', 'Xóa danh mục thành công');
     }
 }

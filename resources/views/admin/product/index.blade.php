@@ -34,10 +34,10 @@
                                                 <td>{{ number_format($product->price, 0, ',', '.') }} VNĐ</td>
                                                 <td>{{ $product->category->name }}</td>
                                                 <td>
-                                                    @if ($product->status == 1)
-                                                        <span class="badge bg-success">Còn hàng</span>
+                                                    @if ($product->status)
+                                                        <span class="badge badge-success">Còn hàng</span>
                                                     @else
-                                                        <span class="badge bg-danger">Hết hàng</span>
+                                                        <span class="badge badge-danger">Hết hàng</span>
                                                     @endif
                                                 <td>
                                                     <a href="{{ route('product.edit', $product->id) }}"
